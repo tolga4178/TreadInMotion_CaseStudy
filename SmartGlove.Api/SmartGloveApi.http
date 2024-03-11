@@ -1,0 +1,34 @@
+@SmartGloveApi_HostAddress = http://localhost:5287
+
+GET {{SmartGloveApi_HostAddress}}/api/login/displayloginscreen
+Accept: application/json
+
+###
+POST {{SmartGloveApi_HostAddress}}/api/login/authenticate
+Content-Type: application/json
+
+{
+"username":"",
+"password":""
+
+}
+###
+GET {{SmartGloveApi_HostAddress}}/api/login/languages
+Accept: application/json
+
+###
+
+GET {{SmartGloveApi_HostAddress}}/api/form/displayformscreen
+Accept: application/json
+###
+
+POST {{SmartGloveApi_HostAddress}}/api/form/submit
+Content-Type: application/json
+
+{
+"input1Value":"test12",
+"Input2Value":"test15"
+}
+###
+
+
