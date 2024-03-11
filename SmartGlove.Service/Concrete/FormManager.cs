@@ -6,12 +6,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThreadInMotion.SmartGlove.Sdk.Extensions;
+using ThreadInMotion.SmartGlove.Sdk.Interfaces.Glove;
+using ThreadInMotion.SmartGlove.Sdk.Models.Glove;
+using ThreadInMotion.SmartGlove.Sdk.Services.Glove;
 
 namespace SmartGlove.Service.Concrete
 {
     public class FormManager : IFormService
     {
-        public async Task<ResponseDTO> DisplayFormScreen()
+        public async Task<ResponseDTO> DisplayFormScreenAsync()
         {
             List<dynamic> formElements = new();
             formElements.Add(new List<string>());
@@ -42,9 +46,8 @@ namespace SmartGlove.Service.Concrete
               new{Type="button",Id="submitform",Name="SubmitForm",Font_No=2,Align="right",Url="/api/form/submit" }
             });
 
+            return new ResponseDTO {
 
-            ResponseDTO response = new()
-            {
                 Mode = 5,
                 Sleep = 0,
                 Screen = new()
@@ -53,13 +56,13 @@ namespace SmartGlove.Service.Concrete
                     Header = "Form",
                     Body = new List<List<dynamic>> { formElements },
                 }
-            };
 
-            return response;
+            };
         }
 
-        public async Task<ResponseDTO> SubmitForm(FormDTO formDTO)
+        public async Task<ResponseDTO> SubmitFormAsync(FormDTO formDTO)
         {
+
 
             List<dynamic> formElements = new();
             formElements.Add(new List<string>());
@@ -93,7 +96,8 @@ namespace SmartGlove.Service.Concrete
             });
 
 
-            ResponseDTO response = new()
+
+            return new ResponseDTO
             {
                 Mode = 5,
                 Sleep = 0,
@@ -104,8 +108,6 @@ namespace SmartGlove.Service.Concrete
                     Body = new List<List<dynamic>> { formElements },
                 }
             };
-
-            return response;
         }
     }
 }

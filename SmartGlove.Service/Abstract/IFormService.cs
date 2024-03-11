@@ -9,7 +9,7 @@ namespace SmartGlove.Service.Abstract
 {
     public interface IFormService
     {
-        Task<ResponseDTO> DisplayFormScreen();
-        Task<ResponseDTO> SubmitForm(FormDTO formDTO);
+        Task<ResponseDTO> DisplayFormScreenAsync();
+        Task<ResponseDTO> SubmitFormAsync(FormDTO formDTO);
     }
 }

@@ -14,7 +14,7 @@ namespace SmartGlove.Service.Concrete
     public class LoginManager : ILoginService
     {
      
-        public async Task <ResponseDTO> DisplayLoginScreen()
+        public async Task <ResponseDTO> DisplayLoginScreenAsync()
         {
 
             List<dynamic> formElements = new ();
@@ -52,23 +52,23 @@ namespace SmartGlove.Service.Concrete
             });
 
 
-            ResponseDTO response = new()
-            {
+            return new ResponseDTO {
                 Mode = 5,
                 Sleep = 0,
-                Screen = new ()
+                Screen = new()
                 {
                     State = "login",
                     Header = "Login",
                     Body = new List<List<dynamic>> { formElements },
                     Url = "/api/login/authenticate"
                 }
-            };
 
-            return response;
+              
+
+            };
         }
 
-        public async Task<ResponseDTO> Authenticate(LoginDTO loginDTO)
+        public async Task<ResponseDTO> AuthenticateAsync(LoginDTO loginDTO)
         {
 
 
@@ -112,8 +112,6 @@ namespace SmartGlove.Service.Concrete
 
 
             response.Screen.Body = new List<List<dynamic>> { formElements };
-
-
 
 
             return response;

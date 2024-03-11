@@ -16,19 +16,19 @@ namespace SmartGlove.Api.Controllers
         }
 
 
-        [HttpGet("login")]
-        public async Task<IActionResult> DisplayLoginScreen()
+        [HttpGet("DisplayLoginScreenAsync")]
+        public async Task<IActionResult> DisplayLoginScreenAsync()
         {
-            var loginObject = await _loginService.DisplayLoginScreen();
+            var loginObject = await _loginService.DisplayLoginScreenAsync();
             
             return Ok(loginObject);
         }
 
 
-        [HttpPost("authenticate")]
-        public async Task<IActionResult> Authenticate(LoginDTO loginDTO)
+        [HttpPost("AuthenticateAsync")]
+        public async Task<IActionResult> AuthenticateAsync(LoginDTO loginDTO)
         {
-            var authenticateObject = await _loginService.Authenticate(loginDTO);
+            var authenticateObject = await _loginService.AuthenticateAsync(loginDTO);
 
             if (authenticateObject.StatusCode == StatusCodes.Status200OK)
                 return Ok(authenticateObject);
@@ -38,10 +38,9 @@ namespace SmartGlove.Api.Controllers
 
         }
 
-        [HttpGet("languages")]
+        [HttpGet("Languages")]
         public async Task<IActionResult> Languages()
         {
-
             return Ok();
         }
     }

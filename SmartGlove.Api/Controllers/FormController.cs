@@ -15,20 +15,20 @@ namespace SmartGlove.Api.Controllers
                 _formService = formService;
         }
 
-        [HttpGet("displayformscreen")]
-        public async Task<IActionResult> DisplayFormScreen()
+        [HttpGet("DisplayFormScreenAsync")]
+        public async Task<IActionResult> DisplayFormScreenAsync()
         {
-            var formObject = await _formService.DisplayFormScreen();
+            var formObject = await _formService.DisplayFormScreenAsync();
 
             return Ok(formObject);
         }
 
 
-        [HttpPost("submit")]
-        public async Task<IActionResult> Submit(FormDTO formDTO)
+        [HttpPost("SubmitFormAsync")]
+        public async Task<IActionResult> SubmitFormAsync(FormDTO formDTO)
         { 
            
-            var submitObject = await _formService.SubmitForm(formDTO);
+            var submitObject = await _formService.SubmitFormAsync(formDTO);
 
             return Ok(submitObject);
         }

@@ -1,15 +1,15 @@
 @SmartGloveApi_HostAddress = http://localhost:5287
 
-GET {{SmartGloveApi_HostAddress}}/api/login/displayloginscreen
+GET {{SmartGloveApi_HostAddress}}/api/login/displayloginscreenasync
 Accept: application/json
 
 ###
-POST {{SmartGloveApi_HostAddress}}/api/login/authenticate
+POST {{SmartGloveApi_HostAddress}}/api/login/authenticateasync
 Content-Type: application/json
 
 {
-"username":"",
-"password":""
+"username":"Admin",
+"password":"123"
 
 }
 ###
@@ -18,16 +18,16 @@ Accept: application/json
 
 ###
 
-GET {{SmartGloveApi_HostAddress}}/api/form/displayformscreen
+GET {{SmartGloveApi_HostAddress}}/api/form/displayformscreenasync
 Accept: application/json
 ###
 
-POST {{SmartGloveApi_HostAddress}}/api/form/submit
+POST {{SmartGloveApi_HostAddress}}/api/form/submitformasync
 Content-Type: application/json
 
 {
-"input1Value":"test12",
-"Input2Value":"test15"
+"input1Value":"plainText1",
+"Input2Value":"plainText2"
 }
 ###
 

@@ -9,7 +9,7 @@ namespace SmartGlove.Service.Abstract
 {
     public interface ILoginService
     {
-        Task <ResponseDTO> DisplayLoginScreen();
-        Task <ResponseDTO> Authenticate(LoginDTO loginDTO);
+        Task <ResponseDTO> DisplayLoginScreenAsync();
+        Task <ResponseDTO> AuthenticateAsync(LoginDTO loginDTO);
     }
 }
